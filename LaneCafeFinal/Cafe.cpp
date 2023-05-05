@@ -188,7 +188,7 @@ double Cafe::GiveChange(double change)
 	else if (change >= 0.1)
 	{
 		change -= 0.1;
-		Print("+$0.1");
+		Print("+$0.10");
 	}
 	else if (change >= 0.05)
 	{
@@ -214,5 +214,6 @@ double Cafe::GiveChange(double change)
 
 double Cafe::RoundToHundredths(double input)
 {
-	return ceil(input * 100) / 100;
+	// help from http://faculty.salisbury.edu/~dxdefino/roundoff.htm#:~:text=To%20round%20to%20nearest%20hundredth%3A&text=Ex%3A%20moneyValue%20%3D%20floor(floatValue,is%20now%20stored%20as%208.12.
+	return floor(input * 100 + 0.5) / 100;
 }
